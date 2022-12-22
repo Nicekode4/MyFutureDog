@@ -1,0 +1,27 @@
+{
+  "name": "myfuturedog",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicekode4/MyFutureDog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicekode4/MyFutureDog/issues"
+  },
+  "homepage": "https://github.com/Nicekode4/MyFutureDog#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.0"
+  }
+}
