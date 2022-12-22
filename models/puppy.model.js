@@ -18,16 +18,16 @@ PuppyModel.init({
         type: DataTypes.BLOB,
         allowNull: false
     },
-    momId: {
+    mom_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    dadId: {
+    dad_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
     birthday: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: true
     }
 

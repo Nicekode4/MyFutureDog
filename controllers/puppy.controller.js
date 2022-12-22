@@ -1,14 +1,16 @@
 import PuppyModel from "../models/puppy.model.js";
-import FemaleModel from "../models/females.model.js";
-import MaleModel from "../models/males.model.js";
-import express from "express";
+// // import FemaleModel from "../models/females.model.js";
+// // import MaleModel from "../models/males.model.js";
 
-FemaleModel.hasMany(PuppyModel);
-MaleModel.hasMany(PuppyModel);
+
+// // FemaleModel.hasMany(PuppyModel);
+// // MaleModel.hasMany(PuppyModel);
+
+import express from "express";
 class PuppyController {
     list = async (req, res) => {
         const result = await PuppyModel.findAll({
-            attributes: ['id', 'image', 'createdAt', 'updatedAt'],
+            attributes: ['id', 'images', 'createdAt', 'updatedAt'],
             order: ['id'],
             limit: 100
         })
@@ -16,24 +18,25 @@ class PuppyController {
     }
     details = async (req, res) => {
         const idss = req.query.id;
-        console.log(idss);
+       
         const { id } = req.params || 0
         const result = await PuppyModel.findOne({
-            //attributes: ['id', 'title', 'rating', 'price', 'categoryId'],
+            attributes: ['images'],
             where: { id: id }
         })
-        res.json(result)
+        console.log(result);
+        res.send(`<img src="${result}" alt="">`)
     }
 
     create = async (req, res) => {
-        const { id, title, disc, rating, price, categoryId } = req.body;
-        console.log(title);
-        if (title && disc && price && categoryId) {
-            const model = await PuppyModel.create(req.body)
-            return res.json({ newId: model.id })
-        } else {
-            res.sendStatus(418)
-        }
+        const { id, name, images, mom_id, dad_id, birthday } = req.body;
+        console.log(req.body);
+         if (name && images && mom_id && dad_id) {
+             const model = await PuppyModel.create(req.body)
+             return res.json({ newId: model.id })
+         } else {
+             res.sendStatus(418)
+         }
     }
 
     update = async (req, res) => {
